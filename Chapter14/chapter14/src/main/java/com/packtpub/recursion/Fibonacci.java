@@ -2,7 +2,7 @@ package com.packtpub.recursion;
 
 public class Fibonacci {
 
-    // Gnerates the value for this number
+    // Generates the value for this number
     public static int fibonacci(int number) {
         if (number == 0) {
             return number;
