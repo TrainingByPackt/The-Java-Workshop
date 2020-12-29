@@ -3,6 +3,8 @@ package com.packtpub.temps;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class SummerHighs {
@@ -24,19 +26,27 @@ public class SummerHighs {
         return summerHigh;
     }
 
-    public SummerHigh getByCountry(String country) {
+    public List<SummerHigh> getByCountry(String country) {
         Map<String, SummerHigh> column = data.column(country.toLowerCase());
 
-        SummerHigh summerHigh = null;
+        List<SummerHigh> highs = new ArrayList<>();
 
         for ( String key : column.keySet()) {
-            summerHigh = column.get(key);
+            highs.add( column.get(key) );
         }
 
-        return summerHigh;
+        return highs;
     }
 
+    public SummerHigh getFirstByCountry(String country) {
+        List<SummerHigh> highs = getByCountry(country);
 
+        if (highs.size() > 0) {
+            return highs.get(0);
+        }
+
+        return null;
+    }
 
     public void initialize() {
 

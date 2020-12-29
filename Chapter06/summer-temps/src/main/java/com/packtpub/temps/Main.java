@@ -24,7 +24,7 @@ public class Main {
         if ("-city".equals(searchBy)) {
             high = summerHighs.getByCity(name);
         } else if ("-country".equals(searchBy)) {
-            high = summerHighs.getByCountry(name);
+            high = summerHighs.getFirstByCountry(name);
         }
 
 
