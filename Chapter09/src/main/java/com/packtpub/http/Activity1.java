@@ -12,23 +12,20 @@ public class Activity1 {
     public static void main(String[] args) {
 
         try {
-            String url = "http://hc.apache.org/";
+            String url = "https://hc.apache.org/";
 
             Document doc =
                     Jsoup.connect(url).get();
 
-            Elements sections = doc.select("div.section");
+            Elements sections = doc.select("H3");
 
             for (Element div : sections) {
 
                 for (Element child : div.children()) {
-                    String tag = child.tagName();
-                    if (tag.equalsIgnoreCase("h3")) {
 
-                        Elements links = child.getElementsByTag("a");
-                        for (Element link : links) {
-                            System.out.println(link.text());
-                        }
+                    Elements links = child.getElementsByTag("A");
+                    for (Element link : links) {
+                        System.out.println(link.text());
                     }
                 }
             }
